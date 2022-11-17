@@ -431,25 +431,25 @@ function editNumberRelease(temp:number) {
 function editReleaseMonth(temp:number) {
     let releaseMonth = +readlineSync.question('Enter releaseMonth want to fix :  ')
     let index = documentManager.searchDocumentById(temp)
-    documentManager.magazineList[index].setDocumentCode(releaseMonth);
+    documentManager.magazineList[index].setReleaseMonth(releaseMonth);
 }
 
 function editAuthor(temp:number) {
     let author = readlineSync.question('Enter author want to fix :  ')
     let index = documentManager.searchDocumentById(temp)
-    documentManager.bookList[index].setDocumentCode(author);
+    documentManager.bookList[index].setAuthor(author);
 }
 
 function editPageNumber(temp:number) {
     let pageNumber = +readlineSync.question('Enter pageNumber want to fix :  ')
     let index = documentManager.searchDocumentById(temp)
-    documentManager.bookList[index].setDocumentCode(pageNumber);
+    documentManager.bookList[index].setPageNumber(pageNumber);
 }
 
 function editReleaseDay(temp:number) {
     let releaseDay = +readlineSync.question('Enter releaseDay want to fix :  ')
     let index = documentManager.searchDocumentById(temp)
-    documentManager.newspaperList[index].setDocumentCode(releaseDay);
+    documentManager.newspaperList[index].setReleaseDay(releaseDay);
 }
 
 
