@@ -1,6 +1,6 @@
 interface IPriorityQueue<T> {
     enqueue(item: T, priority: number): void
-    dequeue(): T
+    dequeue(): T|null
     size(): number
     isEmpty(): boolean
 }
@@ -8,7 +8,7 @@ class PriorityQueue<T> implements IPriorityQueue<T> {
 
     data: [number, T][] = []
 
-    dequeue(): T {
+    dequeue(): T|null {
         if (this.isEmpty()) {
             return null
         }

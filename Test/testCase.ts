@@ -1,18 +1,83 @@
-export class Product{
-    private id !: number;
-    private name !: number;
-    private price !: number;
-    private amount !: number;
-    private description !: number;
+class Account {
+    name: string;
+    password: string;
 
-
-    constructor(id: number, name: number, price: number, amount: number, desciption: number) {
-        this.id = id;
+    constructor(name: string, password: string) {
         this.name = name;
-        this.price = price;
-        this.amount = amount;
-        this.description = desciption;
+        this.password = password;
     }
-
 }
 
+class AccountManager {
+
+    accountList: Account[] = [];
+
+    constructor() {
+    }
+
+    signUp(account: Account): void {
+        this.accountList.push(account);
+    }
+
+    signIn(account: Account): number | undefined {
+        for (let i = 0; i < this.accountList.length; i++) {
+            if (this.accountList[i].name === account.name && this.accountList[i].password === account.name) {
+                return 1;
+            } else return -1
+        }
+    }
+
+    display() {
+        return this.accountList;
+    }
+}
+
+let readlineSync = require('readline-sync');
+let account = new AccountManager();
+
+function signIn() {
+    console.log('---------Enter account-----------');
+    let name = readlineSync.question('Enter name :  ');
+    let password = readlineSync.question('Enter password :  ');
+    let a = new Account(name, password);
+    if (account.signIn(a) === 1) {
+        console.log('Dang nhap thanh cong')
+    } else console.log('Dang nhap that bai')
+}
+
+function signUp() {
+    console.log('---------Enter account-----------');
+    let name = readlineSync.question('Enter name :  ');
+    let password = readlineSync.question('Enter password :  ');
+    let a = new Account(name, password);
+    account.signUp(a);
+}
+function display() {
+    account.display();
+}
+
+function main() {
+    let menu = `---------Menu chính-----------
+    1.Sign in
+    2.Sign up
+    3.Display
+    0.Thoát chương trình`
+    let choice = -1;
+    do {
+        console.log(menu)
+        choice = +readlineSync.question('Enter Choice : ');
+        switch (choice) {
+            case 1:
+                signIn();
+                break;
+            case 2:
+                signUp();
+                break;
+            case 3:
+                display();
+                break;
+        }
+    } while (choice !== 0);
+}
+
+main();
