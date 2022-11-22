@@ -56,13 +56,6 @@ class Family {
         this.listPerson = listPerson;
     }
 
-    getNumberOfPerson(): number {
-        return this.numberOfPerson;
-    }
-
-    setNumberOfPerson(value: number) {
-        this.numberOfPerson = value;
-    }
 
     getHouseNumber(): number {
         return this.houseNumber;
@@ -119,17 +112,19 @@ function addPerson(numberOfPerson:number,houseNumber:number) {
                 let id = readlineSync.question('Enter id :  ');
                 let person = new Persons(name, age, job, id);
                 t.push(person)
+                numberOfPerson++;
                 break;
 
         }
     } while (choice !== 0);
     let family = new Family(numberOfPerson, houseNumber, t);
     town.addFamily1(family)
+
 }
 
 function addFamily() {
     console.log('---------Hiển thị form thêm mới-----------');
-    let numberOfPerson = readlineSync.question('Enter numberOfPerson :  ');
+    let numberOfPerson = 0;
     let houseNumber = readlineSync.question('Enter houseNumber :  ');
     addPerson(numberOfPerson,houseNumber)
 }
