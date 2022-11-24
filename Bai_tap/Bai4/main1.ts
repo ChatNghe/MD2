@@ -113,7 +113,7 @@ class Town { // <=> FamilyManager
     show() {
         let str = ''
         for (let i=0;i<this.listFamily.length;i++) {
-            str += `Hộ gia đình thứ ${i+1} có ${this.listFamily[i].member} thành viên: `
+            str += `Hộ gia đình ${i+1} có ${this.listFamily[i].member} thành viên: \n`
             for (const person of this.listFamily[i].listPerson) {
                 str +=`id : ${person.id}, name: ${person.fullName}, job: ${person.job}, age: ${person.age}; \n`
             }
