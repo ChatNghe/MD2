@@ -17,38 +17,37 @@ export class AccountManagerment {
             this.add(account);
             console.log('Sucess!')
         }
-        this.add(account);
-        // else {
-        //     for (let i = 0; i < this.accountList.length; i++) {
-        //         flag = true;
-        //         if (this.accountList[i].accountName === account.accountName || account.accountName.length < 8 || account.accountName.length > 16) {
-        //             console.log(`Tên đăng nhập sai hoặc đã tồn tại`)
-        //             flag = false;
-        //         }
-        //         if (account.password.length < 8 || account.password.length > 16) {
-        //             console.log(`Mật khẩu phải từ 8 đến 16 kí tự`)
-        //             flag = false;
-        //         }
-        //         if (this.validateEmail(account.email) === false || this.accountList[i].email === account.email) {
-        //             console.log(`Email bạn nhập sai`)
-        //             flag = false;
-        //
-        //         }
-        //         if (account.age < 18) {
-        //             console.log(`Bạn phải lớn hơn 18 tuổi`)
-        //             flag = false;
-        //         }
-        //         if (account.phoneNumber.length !== 10) {
-        //             console.log(`phoneNumber bạn nhập sai`)
-        //             flag = false;
-        //         }
-        //         if (flag === false) break;
-        //     }
-        //     if (flag === true) {
-        //         this.add(account);
-        //         console.log('Sucess!')
-        //     }
-        // }
+        else {
+            for (let i = 0; i < this.accountList.length; i++) {
+                flag = true;
+                if (this.accountList[i].accountName === account.accountName || account.accountName.length < 8 || account.accountName.length > 16) {
+                    console.log(`Tên đăng nhập sai hoặc đã tồn tại`)
+                    flag = false;
+                }
+                if (account.password.length < 8 || account.password.length > 16) {
+                    console.log(`Mật khẩu phải từ 8 đến 16 kí tự`)
+                    flag = false;
+                }
+                if (this.validateEmail(account.email) === false || this.accountList[i].email === account.email) {
+                    console.log(`Email bạn nhập sai`)
+                    flag = false;
+
+                }
+                if (account.age < 18) {
+                    console.log(`Bạn phải lớn hơn 18 tuổi`)
+                    flag = false;
+                }
+                if (account.phoneNumber.length !== 10) {
+                    console.log(`phoneNumber bạn nhập sai`)
+                    flag = false;
+                }
+                if (flag === false) break;
+            }
+            if (flag === true) {
+                this.add(account);
+                console.log('Sucess!')
+            }
+        }
     }
 
     checkLogIn(name: string, pass: string): number | undefined {

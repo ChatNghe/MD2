@@ -393,7 +393,7 @@ function main() {
                 let password = readlineSync.question('Enter password :  ');
                 let userName = readlineSync.question('Enter name :  ');
                 let email = readlineSync.question('Enter email :  ');
-                let age = readlineSync.question('Enter age :  ');
+                let age = +readlineSync.question('Enter age :  ');
                 let phone = readlineSync.question('Enter phone :  ');
                 let address = readlineSync.question('Enter address :  ');
                 let account = new Account(accountName, password, userName, email, age, phone, address)
@@ -462,7 +462,8 @@ let room103 = new Room('103', 200, 'empty')
 // let room202 = new Room('202', 200, 'empty')
 // let room203 = new Room('203', 300, 'empty')
 // let room301 = new Room('301', 150, 'empty')
-// let room302 = new Room('302', 300, 'empty')
+// let room302 = new Room('302', 300, 'empty')kzlooo
+0
 // let room303 = new Room('303', 400, 'empty')
 roomManager.add(room101)
 roomManager.add(room102)
@@ -476,7 +477,7 @@ roomManager.add(room103)
 
 
 function roomManagerment() {
-    let menu = `---------Menu chính-----------
+    let menu = `---------Menu room management-----------
     1.List room
     2.Search room by price
     3.Display room status on period
@@ -526,7 +527,7 @@ function roomManagerment() {
 let billManager = new BillManagerment();
 
 function billManagerment() {
-    let menu = `---------Menu chính-----------
+    let menu = `---------Menu bill management-----------
     1.List bill
     2.Add bill
     3.Edit bill
