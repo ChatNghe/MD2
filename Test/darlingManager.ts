@@ -164,7 +164,13 @@ function main() {
                 let darlingHobby = readlineSync.question('Enter hobby :  ');
                 let darling = new Darling(darlingId, darlingName, zodiac, darlingAddress, darlingBirthYear, darlingHobby)
                 let flag = true;
-
+                for (let i = 0; i < darlingManager.findAll().length; i++) {
+                    if (darling.id === darlingManager.findAll()[i].id){
+                        console.log(`id đã tồn tại`)
+                        flag = false;
+                        break;
+                    }
+                }
                 if (darling.name.length > 16) {
                     console.log(`Tên quá dài`)
                     flag = false;
@@ -220,8 +226,7 @@ function zodiacChoice(): string {
     9.Sagittarius (Archer): November 22–December 21
     10.Capricornus (Goat): December 22–January 19
     11.Aquarius (Water Bearer): January 20–February 18
-    12.Pisces (Fish): February 19–March 20
-    0.Exit program`
+    12.Pisces (Fish): February 19–March 20`
     let choice = -1;
     let zodiac1: string;
     do {
